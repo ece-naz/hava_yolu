@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Havayolu Yolcu Memnuniyeti | Grafik Raporları</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="reports-page">
+    <section class="table-section">
+      <div class="table-header">
+        <h2>Grafik Raporları</h2>
+        <button id="backToMainBtn" type="button">Ana Sayfaya Dön</button>
+      </div>
+      <p id="reportsInfoText" class="reports-note"></p>
+    </section>
+
+    <section id="chartsSection" class="charts-grid">
+      <article class="chart-card">
+        <h2>Memnuniyet Dağılımı</h2>
+        <canvas id="satisfactionChart"></canvas>
+      </article>
+      <article class="chart-card">
+        <h2>Sınıfa Göre Memnuniyet (%)</h2>
+        <canvas id="classChart"></canvas>
+      </article>
+      <article class="chart-card">
+        <h2>Gecikme Aralıklarına Göre Memnuniyet (%)</h2>
+        <canvas id="delayChart"></canvas>
+      </article>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="reports.js"></script>
+</body>
+</html>
