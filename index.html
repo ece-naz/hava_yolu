@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Analitika | Havayolu Yolcu Memnuniyeti Simülasyonu</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="control-panel">
+      <div class="brand">
+        <p>Havayolu Yolcu Memnuniyeti Simülasyonu</p>
+      </div>
+
+      <form id="simulationForm" novalidate>
+        <div class="field-group">
+          <label for="onlineBoarding">Online Biniş <span id="onlineBoardingValue">3</span></label>
+          <input type="range" id="onlineBoarding" name="onlineBoarding" min="1" max="5" step="1" value="3" />
+        </div>
+
+        <div class="field-group">
+          <label for="wifiService">Wi-Fi Hizmeti <span id="wifiServiceValue">3</span></label>
+          <input type="range" id="wifiService" name="wifiService" min="1" max="5" step="1" value="3" />
+        </div>
+
+        <div class="field-group">
+          <label for="inflightEntertainment">Uçuş İçi Eğlence <span id="inflightEntertainmentValue">3</span></label>
+          <input type="range" id="inflightEntertainment" name="inflightEntertainment" min="1" max="5" step="1" value="3" />
+        </div>
+
+        <div class="field-group">
+          <label for="seatComfort">Koltuk Konforu <span id="seatComfortValue">3</span></label>
+          <input type="range" id="seatComfort" name="seatComfort" min="1" max="5" step="1" value="3" />
+        </div>
+
+        <div class="field-group">
+          <label for="departureDelay">Kalkış Gecikmesi (dakika)</label>
+          <input type="number" id="departureDelay" name="departureDelay" min="0" max="600" step="1" value="15" />
+        </div>
+
+        <div class="field-group">
+          <label for="flightClass">Uçuş Sınıfı</label>
+          <select id="flightClass" name="flightClass">
+            <option value="Business">Business</option>
+            <option value="Eco Plus">Eco Plus</option>
+            <option value="Eco">Eco</option>
+          </select>
+        </div>
+
+        <p id="errorMessage" class="error-message" aria-live="polite"></p>
+
+        <button type="submit" id="runSimulationBtn">Simülasyonu Çalıştır</button>
+      </form>
+    </aside>
+
+    <main class="dashboard">
+      <section class="stats-grid">
+        <article class="stat-card">
+          <h2>Memnun Yolcu Oranı</h2>
+          <p id="satisfiedRateText">%0</p>
+          <div class="progress-track">
+            <div id="satisfiedRateBar" class="progress-fill"></div>
+          </div>
+        </article>
+
+        <article class="stat-card">
+          <h2>Nötr/Memnuniyetsiz Oranı</h2>
+          <p id="neutralRateText">%0</p>
+          <div class="progress-track neutral">
+            <div id="neutralRateBar" class="progress-fill"></div>
+          </div>
+        </article>
+
+        <article class="stat-card">
+          <h2>Nötrden Memnuna Geçen</h2>
+          <p id="convertedText">0 / 0</p>
+          <small id="convertedRateText">%0 dönüşüm</small>
+        </article>
+      </section>
+
+      <section class="table-section">
+        <div class="table-header">
+          <h2>Yolcu Simülasyon Verisi (İlk 50 Kayıt)</h2>
+          <div class="table-actions">
+            <button id="openReportsBtn" type="button" disabled>Grafik Raporları</button>
+            <button id="downloadCsvBtn" type="button" disabled>CSV İndir</button>
+          </div>
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Cinsiyet</th>
+                <th>Müşteri Tipi</th>
+                <th>Yaş</th>
+                <th>Sınıf</th>
+                <th>Online Biniş</th>
+                <th>Uçuş İçi Wi-Fi</th>
+                <th>Uçuş İçi Eğlence</th>
+                <th>Koltuk Konforu</th>
+                <th>Kalkış Gecikmesi (dk)</th>
+                <th>Memnuniyet</th>
+              </tr>
+            </thead>
+            <tbody id="resultsBody">
+              <tr>
+                <td colspan="11" class="placeholder">Simülasyon çalıştırıldığında veriler burada listelenecek.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
